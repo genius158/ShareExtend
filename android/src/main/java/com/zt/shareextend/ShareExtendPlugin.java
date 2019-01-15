@@ -109,7 +109,7 @@ public class ShareExtendPlugin implements MethodChannel.MethodCallHandler, Plugi
 
     private boolean checkPermisson() {
         if (ContextCompat.checkSelfPermission(mRegistrar.context(), Manifest.permission.READ_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED) {
+            == PackageManager.PERMISSION_GRANTED) {
             return true;
         }
         return false;
@@ -128,8 +128,9 @@ public class ShareExtendPlugin implements MethodChannel.MethodCallHandler, Plugi
     }
 
     private static Uri getUriForFile(Context context, File file) {
+        context = context.getApplicationContext();
         if (Build.VERSION.SDK_INT >= 24) {
-            return FileProvider.getUriForFile(context, context.getPackageManager()+".fileprovider", file);
+            return FileProvider.getUriForFile(context,"com.yan.magictowerorigin.fileprovider", file);
         } else {
             return Uri.fromFile(file);
         }
