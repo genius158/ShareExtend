@@ -109,7 +109,7 @@ public class ShareExtendPlugin implements MethodChannel.MethodCallHandler, Plugi
 
     private boolean checkPermisson() {
         if (ContextCompat.checkSelfPermission(mRegistrar.context(), Manifest.permission.READ_EXTERNAL_STORAGE)
-                == PackageManager.PERMISSION_GRANTED) {
+            == PackageManager.PERMISSION_GRANTED) {
             return true;
         }
         return false;
